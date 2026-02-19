@@ -1,6 +1,9 @@
 #!/bin/bash
-# SatellaOS tools directory
-TOOLS_DIR="$HOME/satellaos"
+
+# SatellaOS tools directory (geçici klasör)
+TOOLS_DIR=$(mktemp -d /tmp/satellaos-tools-XXXXXX)
+trap 'rm -rf "$TOOLS_DIR"' EXIT
+
 # Github Repo
 REPO="https://raw.githubusercontent.com/satellaos-official/satellaos-debian-utilities-testing/refs/heads/main/Tools"
 
@@ -9,9 +12,6 @@ if ! command -v wget &> /dev/null; then
     echo "Error: wget is not installed. Please install it first."
     exit 1
 fi
-
-# Create folder if it doesn't exist
-mkdir -p "$TOOLS_DIR"
 
 # Display menu
 echo "Select a tool to download and run:"
@@ -78,11 +78,4 @@ else
     exit 1
 fi
 
-# Ask user if they want to delete the tools folder
-read -p "Do you want to delete the $TOOLS_DIR folder? (Y/N): " del_choice
-if [[ "$del_choice" =~ ^[Yy]$ ]]; then
-    rm -rf "$TOOLS_DIR"
-    echo "$TOOLS_DIR deleted."
-else
-    echo "$TOOLS_DIR kept."
-fi
+echo "Setup files will be automatically cleaned up on exit."
