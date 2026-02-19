@@ -46,8 +46,8 @@ echo "36 - Warp VPN"
 echo "37 - WineHQ Stable [Debian 13 (Deb)]"
 echo "--------------------------------------"
 
-PKG_DIR="$HOME/satellaos-installer/packages"
-mkdir -p "$PKG_DIR"
+PKG_DIR=$(mktemp -d /tmp/satellaos-installer-XXXXXX)
+trap 'rm -rf "$PKG_DIR"' EXIT
 
 echo "Enter the numbers of the programs you want to install."
 echo "Example: 1 3 5 14 21"
@@ -78,9 +78,6 @@ install_2() { # Firefox ESR
 }
 
 install_3() { # Firefox
-    PKG_DIR="$HOME/satellaos-packages"
-    mkdir -p "$PKG_DIR"
-    
     LATEST_VERSION=$(curl -s https://product-details.mozilla.org/1.0/firefox_versions.json | grep -Po '"LATEST_FIREFOX_VERSION":\s*"\K[^"]+')
     FILE="$PKG_DIR/firefox-$LATEST_VERSION.tar.xz"
     URL="https://ftp.mozilla.org/pub/firefox/releases/$LATEST_VERSION/linux-x86_64/en-US/firefox-$LATEST_VERSION.tar.xz"
@@ -91,7 +88,6 @@ install_3() { # Firefox
     sudo mv "$PKG_DIR/firefox" /opt/firefox
     sudo ln -sf /opt/firefox/firefox /usr/local/bin/firefox
     
-    # Sistem geneli desktop dosyası oluştur
     sudo tee /usr/share/applications/firefox.desktop > /dev/null <<EOL
 [Desktop Entry]
 Version=1.0
@@ -112,10 +108,7 @@ EOL
     xdg-settings set default-web-browser firefox.desktop
 }
 
-install_4() {
-    PKG_DIR="$HOME/satellaos-packages"
-    mkdir -p "$PKG_DIR"
-
+install_4() { # Floorp Browser
     REPO="Floorp-Projects/Floorp"
     ASSET_NAME="floorp-linux-x86_64.tar.xz"
 
@@ -136,7 +129,6 @@ install_4() {
 
     ICON_PATH="/opt/floorp/browser/chrome/icons/default/default128.png"
     
-    # Sistem geneli desktop dosyası oluştur
     sudo tee /usr/share/applications/floorp.desktop > /dev/null <<EOL
 [Desktop Entry]
 Version=1.0
@@ -179,10 +171,7 @@ install_7() { # Vivaldi
     sudo apt install vivaldi-stable
 }
 
-install_8() {
-    PKG_DIR="$HOME/satellaos-packages"
-    mkdir -p "$PKG_DIR"
-
+install_8() { # Zen Browser
     FILE="$PKG_DIR/zen.linux-x86_64.tar.xz"
     wget -O "$FILE" https://github.com/zen-browser/desktop/releases/latest/download/zen.linux-x86_64.tar.xz
 
@@ -196,7 +185,6 @@ install_8() {
 
     ICON_PATH="/opt/zen-browser/browser/chrome/icons/default/default128.png"
 
-    # Sistem geneli desktop dosyası oluştur
     sudo tee /usr/share/applications/zen-browser.desktop > /dev/null <<EOL
 [Desktop Entry]
 Version=1.0
@@ -368,20 +356,4 @@ for i in $SELECTIONS; do
     fi
 done
 
-while true; do
-    read -r -p "Do you want to delete all setup files to free up space? (Y/N): " CLEANUP
-    case "$CLEANUP" in
-        [Yy]* )
-            rm -rf "$PKG_DIR"
-            echo "Setup files have been deleted."
-            break
-            ;;
-        [Nn]* )
-            echo "Setup files have been kept."
-            break
-            ;;
-        * )
-            echo "Invalid option. Please enter Y or N."
-            ;;
-    esac
-done
+echo "Setup files will be automatically cleaned up on exit."
