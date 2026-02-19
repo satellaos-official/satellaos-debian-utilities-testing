@@ -2,7 +2,7 @@
 # SatellaOS tools directory
 TOOLS_DIR="$HOME/satellaos"
 # Github Repo
-REPO="https://raw.githubusercontent.com/satellaos-official/satellaos-debian-utilities-testing/refs/heads/main/tools/"
+REPO="https://raw.githubusercontent.com/satellaos-official/satellaos-debian-utilities-testing/refs/heads/main/tools"
 
 # Check if wget is installed
 if ! command -v wget &> /dev/null; then
