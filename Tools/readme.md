@@ -30,12 +30,12 @@ A comprehensive collection of utility scripts to customize and manage your Satel
 |------|----------|-------------|
 | `config-backup.sh` | System | Backup configurations |
 | `config-restore.sh` | System | Restore configurations |
-| `fonts-v4.sh` | Customization | Font installer (120 fonts) |
+| `fonts.sh` | Customization | Font installer (120 fonts) |
 | `KVM-Tool.sh` | Virtualization | KVM management |
-| `Papirus-color-changer-v2.sh` | Customization | Icon theme customizer |
+| `Papirus-color-changer.sh` | Customization | Icon theme customizer |
 | `PWA-Installer.sh` | Applications | PWA installer |
 | `PWA-Remover.sh` | Applications | PWA remover |
-| `satellaos-program-installer-tool-5.2.0.sh` | Applications | Batch program installer |
+| `satellaos-program-installer-tool.sh` | Applications | Batch program installer |
 
 ---
 
@@ -67,7 +67,7 @@ Restores previously backed-up XFCE and LightDM configurations.
 
 ---
 
-#### 🖋️ fonts-v4.sh
+#### 🖋️ fonts.sh
 **Font Installation Manager**
 
 Comprehensive font installer with 120 professionally curated fonts.
@@ -97,7 +97,7 @@ Enable or disable KVM (Kernel-based Virtual Machine) support.
 
 ---
 
-#### 🎨 Papirus-color-changer-v2.sh
+#### 🎨 Papirus-color-changer.sh
 **Papirus Icon Theme Customizer**
 
 One-click color customization for Papirus icon theme.
@@ -141,7 +141,7 @@ Manage and remove installed Progressive Web Apps.
 
 ---
 
-#### 🚀 satellaos-program-installer-tool-5.2.0.sh
+#### 🚀 satellaos-program-installer-tool.sh
 **Batch Program Installer**
 
 Install multiple programs simultaneously with number-based selection.
@@ -163,12 +163,12 @@ Install multiple programs simultaneously with number-based selection.
 |------|----------|----------|
 | `config-backup.sh` | Sistem | Yapılandırma yedeği |
 | `config-restore.sh` | Sistem | Yapılandırma geri yükleme |
-| `fonts-v4.sh` | Özelleştirme | Font yükleyici (120 font) |
+| `fonts.sh` | Özelleştirme | Font yükleyici (120 font) |
 | `KVM-Tool.sh` | Sanallaştırma | KVM yönetimi |
-| `Papirus-color-changer-v2.sh` | Özelleştirme | Simge teması özelleştirici |
+| `Papirus-color-changer.sh` | Özelleştirme | Simge teması özelleştirici |
 | `PWA-Installer.sh` | Uygulamalar | PWA yükleyici |
 | `PWA-Remover.sh` | Uygulamalar | PWA kaldırıcı |
-| `satellaos-program-installer-tool-5.2.0.sh` | Uygulamalar | Toplu program yükleyici |
+| `satellaos-program-installer-tool.sh` | Uygulamalar | Toplu program yükleyici |
 
 ---
 
@@ -200,7 +200,7 @@ XFCE ve LightDM yapılandırmalarınızı güvenle yedekler.
 
 ---
 
-#### 🖋️ fonts-v4.sh
+#### 🖋️ fonts.sh
 **Font Kurulum Yöneticisi**
 
 120 profesyonel olarak seçilmiş font içeren kapsamlı yükleyici.
@@ -230,7 +230,7 @@ KVM (Kernel-based Virtual Machine) desteğini açıp kapatır.
 
 ---
 
-#### 🎨 Papirus-color-changer-v2.sh
+#### 🎨 Papirus-color-changer.sh
 **Papirus Simge Teması Özelleştirici**
 
 Papirus simge teması için tek tıkla renk özelleştirme.
@@ -274,7 +274,7 @@ Yüklü Progressive Web App'leri yönetin ve kaldırın.
 
 ---
 
-#### 🚀 satellaos-program-installer-tool-5.2.0.sh
+#### 🚀 satellaos-program-installer-tool.sh
 **Toplu Program Yükleyici**
 
 Numara tabanlı seçim ile aynı anda birden fazla program kurun.
