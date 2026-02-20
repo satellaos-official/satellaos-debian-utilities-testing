@@ -15,14 +15,17 @@ fi
 
 # Display menu
 echo "Select a tool to download and run:"
-echo "1) KVM-Tool"
-echo "2) PWA-Installer"
-echo "3) PWA-Remover"
-echo "4) Papirus-color-changer-v2"
-echo "5) Config-Backup"
-echo "6) Config-Restore"
-echo "7) Fonts-v4"
+echo "1) KVM Tool"
+echo "2) PWA Installer"
+echo "3) PWA Remover"
+echo "4) Papirus Color changer"
+echo "5) Config Backup"
+echo "6) Config Restore"
+echo "7) Fonts"
 echo "8) SatellaOS Program Installer Tool"
+echo "9) Unixify Tree"
+echo "10) Efiguard"
+echo "11) Win2GRUB"
 
 # Get user input
 read -p "Enter the number of your choice (1-8): " choice
@@ -60,6 +63,18 @@ case $choice in
   8)
     TOOL_NAME="satellaos-program-installer-tool.sh"
     URL="$REPO/satellaos-program-installer-tool.sh"
+    ;;
+  9)
+    TOOL_NAME="unixify-tree.sh"
+    URL="$REPO/unixify-tree.sh"
+    ;;
+  10)
+    TOOL_NAME="efiguard.sh"
+    URL="$REPO/efiguard.sh"
+    ;;
+  11)
+    TOOL_NAME="win2grub.sh"
+    URL="$REPO/win2grub.sh"
     ;;
   *)
     echo "Invalid choice. Exiting."
